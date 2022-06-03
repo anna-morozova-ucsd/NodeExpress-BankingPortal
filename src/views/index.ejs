@@ -1,10 +1,14 @@
-<%- include ./src/views/header.ejs %>
+<%- include('header')  %>
+
 
 <div class="container">
-    <h1><%=title%></h1>
+    <h1>
+        <%=title%>
+    </h1>
     <a href="/profile">Profile</a>
-
+    
+    <br><a href="/transfer">Transfer</a>
 </div>
-<br><a href="/transfer">Transfer</a>
 
-<%- include ./src/views/footer.ejs %>
+
+<%- include('footer')  %>
