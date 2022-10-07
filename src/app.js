@@ -54,8 +54,8 @@ const users = JSON.parse(userData)
   app.post('/transfer', (req, res) => {
     accounts[req.body.from].balance -= req.body.amount
     accounts[req.body.to].balance += parseInt(req.body.amount, 10)
-    const accountsJSON = JSON.stringify(accounts)
-    fs.writeFileSync('json/accounts.json', accountsJSON, 'UTF8')
+    const accountsJSON = JSON.stringify(accounts,null,4)
+    fs.writeFileSync(path.join(__dirname, 'json/accounts.json'), accountsJSON, 'UTF8')
     res.render('transfer', {message: "Transfer Completed"})
     // const { username, password } = req.body;
     // const { authorization } = req.headers;
@@ -68,11 +68,11 @@ const users = JSON.parse(userData)
   app.post('/payment', (req,res) => {
     accounts.credit.balance -= req.body.amount
     accounts.credit.available += parseInt(req.body.amount, 10)
-    fs.copyFile(path.join(__dirname, "json/account_backup.json"), path.join(__dirname, "json/accounts.json"))
+    // fs.copyFile(path.join(__dirname, "json/account_backup.json"), path.join(__dirname, "json/accounts.json"))
     // const accountData = fs.readFileSync(path.join(__dirname, 'json', 'accounts.json'), 'utf8');
     // const accounts = JSON.parse(accountData);
-    const accountsJSON = JSON.stringify(accounts)
-    fs.writeFileSync('json/accounts.json', accountsJSON,'UTF8')
+    const accountsJSON = JSON.stringify(accounts,null,4)
+    fs.writeFileSync(path.join(__dirname, 'json','/accounts.json'), accountsJSON,'UTF8')
     res.render('payment', { message: "Payment Successful", account: accounts.credit })
   })
 
