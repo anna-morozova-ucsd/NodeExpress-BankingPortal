@@ -80,6 +80,4 @@ app.post('/payment', (req, res) => {
 
 //create server
 const port = 3000
-app.listen(port, () => {
-  console.log('PS Project Running on port 3000!');
-});
+app.listen(3000);
