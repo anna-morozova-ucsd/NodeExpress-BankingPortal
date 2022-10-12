@@ -4,7 +4,7 @@ const express = require('express')
 const app = express()
 //require data.js and use object destructuring to create 3 constants
 //accounts, users, writeJSON
-const { accounts, users, writeJSON } = require('./src/data.js');
+const { accounts, users, writeJSON } = require('./data');
 
 //configure views directory
 app.set('views', path.join(__dirname, 'views'));
